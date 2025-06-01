@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&family=Outfit:wght@100..900&family=Poppins:ital,wght@1,400;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Montserrat:ital,wght@1,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Product preview card component</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      body {
+        background-color: hsl(30, 38%, 92%);
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+      }
+
+      .main > * + *,
+      .cart {
+        margin-top: 1.5rem;
+      }
+      .maindsk {
+        display: none;
+      }
+
+      .main {
+        display: flex;
+        flex-direction: column;
+        max-width: 85vw;
+        width: 75%;
+        height: auto;
+        background-color: hsl(0, 0%, 100%);
+        padding: 0;
+        border-radius: 15px;
+        overflow: hidden;
+        margin-bottom: 25%;
+      }
+      .main > div {
+        padding: 0 24px 24px 24px;
+      }
+
+      .image {
+        height: auto;
+        border-radius: 15px 15px 0 0;
+        margin-left: 0;
+        margin-right: 0;
+        display: block;
+      }
+
+      h1 {
+        font-family: "Montserrat", Arial, Helvetica, sans-serif;
+        font-weight: 400;
+        font-size: clamp(0.875rem, 0.831rem + 0.188vw, 1rem);
+        color: hsl(228, 12%, 48%);
+        letter-spacing: 5px;
+        text-transform: uppercase;
+      }
+      h2 {
+        font-family: "Fraunces", Arial, Helvetica, sans-serif;
+        font-weight: 700;
+        font-size: clamp(2.188rem, 2.143rem + 0.188vw, 2.313rem);
+        margin: 0;
+      }
+
+      p {
+        font-family: "Montserrat", Arial, Helvetica, sans-serif;
+        color: hsl(228, 12%, 48%);
+        font-size: clamp(0.875rem, 0.831rem + 0.188vw, 1rem);
+        color: hsl(228, 12%, 48%);
+      }
+      .prices {
+        display: flex;
+        align-items: center;
+      }
+      .newprice {
+        font-family: "Fraunces", Arial, Helvetica, sans-serif;
+        color: hsl(158, 36%, 37%);
+        font-size: clamp(2.188rem, 2.143rem + 0.188vw, 2.313rem);
+        font-weight: 700;
+        margin-right: 0.938rem;
+      }
+
+      .oldprice {
+        text-decoration: line-through;
+        font-family: "Montserrat", Arial, Helvetica, sans-serif;
+        color: hsl(228, 12%, 48%);
+        font-size: clamp(0.875rem, 0.831rem + 0.188vw, 1rem);
+      }
+
+      .cart {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.938rem;
+        height: 35px;
+        width: auto;
+        text-align: center;
+        background-color: hsl(158, 36%, 37%);
+        color: hsl(0, 0%, 100%);
+        border-radius: 10px;
+        font-family: "Montserrat", Arial, Helvetica, sans-serif;
+        font-weight: 600;
+        font-size: clamp(0.875rem, 0.831rem + 0.188vw, 1rem);
+      }
+      .ico {
+        margin-right: 0.625rem;
+      }
+
+      @media (min-width: 900px) {
+        .main {
+          display: none;
+        }
+
+        body {
+          min-height: 100vh;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin: 0;
+        }
+        .maindsk:not(.mob) {
+          display: flex;
+          flex-direction: row;
+        }
+
+        .maindsk {
+          max-width: 600px;
+          width: 100%;
+          padding: 0;
+          background-color: hsl(0, 0%, 100%);
+          border-radius: 15px;
+          max-height: 500px;
+        }
+        .imagedsk {
+          display: flex;
+          justify-content: flex-end;
+          width: 50%;
+          border-radius: 15px 0 0 15px;
+        }
+        .mob {
+          padding: 1.375rem;
+          margin: auto;
+        }
+
+        h2 {
+          margin: 0;
+        }
+
+        .maindsk .mob > * + * {
+          margin-top: 1rem;
+        }
+        .cart {
+          align-self: center;
+          margin: auto;
+          height: auto;
+          width: auto;
+        }
+
+        .cart:hover {
+          background-color: hsl(158, 42%, 18%);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <img class="image" src="images/image-product-mobile.jpg" alt="" />
+      <div class="submain">
+        <h1>Perfume</h1>
+
+        <h2>Gabrielle Essence Eau De Parfum</h2>
+
+        <p>
+          A floral, solar and voluptuous interpretation composed by Olivier
+          Polge, Perfumer-Creator for the House of CHANEL.
+        </p>
+        <div class="prices">
+          <span class="newprice">$149.99</span>
+          <span class="oldprice">$169.99</span>
+        </div>
+        <div class="cart">
+          <img class="ico" src="images/icon-cart.svg" alt="" />
+          Add to Cart
+        </div>
+      </div>
+    </div>
+
+    <div class="maindsk">
+      <img class="imagedsk" src="images/image-product-desktop.jpg" alt="" />
+      <div class="mob">
+        <h1>Perfume</h1>
+
+        <h2>Gabrielle Essence Eau De Parfum</h2>
+
+        <p>
+          A floral, solar and voluptuous interpretation composed by Olivier
+          Polge, Perfumer-Creator for the House of CHANEL.
+        </p>
+        <div class="prices">
+          <span class="newprice">$149.99</span>
+          <span class="oldprice">$169.99</span>
+        </div>
+        <div class="cart">
+          <img class="ico" src="images/icon-cart.svg" alt="" />
+          Add to Cart
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
